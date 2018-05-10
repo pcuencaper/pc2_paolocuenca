@@ -79,7 +79,7 @@ public class RemuneracionController {
 		  model.addAttribute(new Remuneracion());
 		  return "form";
 	  }
-	  //
+	  
 	  
 	  @PostMapping("/remuneracion/calcularMonto")
 	  private String submitform(@Valid Remuneracion remuneracion , BindingResult bindingResult) {
