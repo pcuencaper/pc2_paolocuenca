@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  
+  <title>Remuneraciones</title>
+  
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h2>Persons</h2><br/>
+<a href="/remuneracion/new">Add</a>
+<table class="table">
+<thead>
+
+  <tr>
+  	<td>Id</td>
+  	<td>nombre</td>
+  	<td>remuneracion</td>
+  	<td>montoRemunerarTotal</td>
+  	<td>monto5tacategoriacalculado</td>
+  	<td>montoMensualCategoria</td>
+  </tr>
+  </thead>
+       
+   <tbody>
+  <tr th:each="remuneracion : ${remuneraciones}">
+  	<td>
+  		<a th:href="@{'/remuneracion/__${remuneracion.id}__/edit'}"
+  			class="btn btn-info" role="button"
+  			>Edit</a>
+  		<a th:href="@{'/remuneracion/__${remuneracion.id}__/delete'}"
+  			class="btn btn-danger" role="button"
+  			>Delete</a>	
+  	</td>
+  
+  	<td th:text="${remuneracion.nombre}"></td>
+  	<td th:text="${remuneracion.remuneracion}"></td>
+  	<td th:text="${remuneracion.montoRemunerarTotal}"></td>
+  	<td th:text="${remuneracion.monto5tacategoriacalculado}"></td>
+  	<td th:text="${remuneracion.montoMensualCategoria}"></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>

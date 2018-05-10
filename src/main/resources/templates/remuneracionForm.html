@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Remunerado</title>
+
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+<h2><p th:text="#{remuneracionFormTitle}"/></h2>
+<form action="#" th:action="@{/remuneracion/new}" th:object="${remuneracion}" method="post">
+	<table class="table">
+		
+		<tr>
+			<td><p th:text="#{remuneracionFormLabel.nombre}"/></td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"
+			    th:errors="*{nombre}"><p th:text="#{personFormLabel.nombre.error}"/></td>
+		</tr>
+
+		<tr>
+			<td><p th:text="#{remuneracionFormLabel.remuneracion}"/></td>
+			<td><input type="text" th:field="*{remuneracion}"/></td>
+			<td th:if="${#fields.hasErrors('remuneracion')}"
+			    th:errors="*{remuneracion}">remuneracion Error</td>
+		</tr>
+
+		<tr>
+			<td><p th:text="#{remuneracionFormLabel.montoRemunerarTotal}"/></td>
+			<td><input type="text" th:field="*{montoRemunerarTotal}"/></td>
+			<td th:if="${#fields.hasErrors('montoRemunerarTotal')}"
+			    th:errors="*{montoRemunerarTotal}">montoRemunerarTotal Error</td>
+		</tr>
+
+
+		<tr>
+			<td><p th:text="#{remuneracionFormLabel.monto5tacategoriacalculado}"/></td>
+			<td><input type="text" th:field="*{monto5tacategoriacalculado}"/></td>
+			<td th:if="${#fields.hasErrors('monto5tacategoriacalculado')}"
+			    th:errors="*{monto5tacategoriacalculado}">monto5tacategoriacalculado Error</td>
+		</tr>
+		
+		<tr>
+			<td>montoMensualCategoria:</td>
+			<td><input type="text" th:field="*{montoMensualCategoria}"/></td>
+			<td th:if="${#fields.hasErrors('montoMensualCategoria')}"
+			    th:errors="*{montoMensualCategoria}">montoMensualCategoriaerror</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td><input type="submit" value="enviar" class="btn btn-primary"/>
+				<input type="reset" value="cancelar" class="btn btn-danger"/></td>
+			<td></td>
+		</tr>
+	</table>
+
+
+</form>
+<br/>
+<a href="/remuneracion/list">Listar Remunerados</a>	
+</div>
+</body>
+</html>
